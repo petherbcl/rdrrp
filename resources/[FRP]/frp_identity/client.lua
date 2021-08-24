@@ -8,120 +8,109 @@ local fakePeds = {}
 local playerSelected = false
 
 RegisterNetEvent("FRP:IDENTITY:DisplayCharSelection")
-AddEventHandler(
-    "FRP:IDENTITY:DisplayCharSelection",
-    function(characterArray, charAppearence)
-        Destroy()
+AddEventHandler("FRP:IDENTITY:DisplayCharSelection",function(characterArray, charAppearence)
+    Destroy()
 
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
 
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
 
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
 
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
 
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+    -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
 
-        cAPI.PlayerAsInitialized(false)
+    cAPI.PlayerAsInitialized(false)
 
-        local playerPed = PlayerPedId()
+    local playerPed = PlayerPedId()
 
-        SetFocusEntity(playerPed) 
-        SetEntityInvincible(playerPed, true)
-        SetEntityVisible(playerPed, false)
-        NetworkSetEntityInvisibleToNetwork(playerPed, true)
+    SetFocusEntity(playerPed) 
+    SetEntityInvincible(playerPed, true)
+    SetEntityVisible(playerPed, false)
+    NetworkSetEntityInvisibleToNetwork(playerPed, true)
 
-        TriggerEvent("FRP:IDENTITY:SetTime")
+    TriggerEvent("FRP:IDENTITY:SetTime")
 
-        ShutdownLoadingScreen()
-        createCamera()
+    ShutdownLoadingScreen()
+    createCamera()
 
-        SendNUIMessage({type = 2}) -- clear UI
+    SendNUIMessage({type = 2}) -- clear UI
 
-        Wait(2500)
+    Wait(2500)
 
-        SetNuiFocus(true, true)
-        SendNUIMessage(
-            {
-                type = 1,
-                list = characterArray
-            }
-        )
+    SetNuiFocus(true, true)
+    SendNUIMessage({type = 1,list = characterArray})
 
-        local fakePedCoords = {
-            vec3(883.233,1269.009,234.920 - 0.98),            
-            vec3(886.051,1272.002,235.121 - 0.98),            
-            vec3(883.233,1269.009,234.920 - 0.98),
-            vec3(885.192,1271.949,235.108 - 0.98)
-        }
+    local fakePedCoords = {
+        vec3(883.233,1269.009,234.920 - 0.98),            
+        vec3(886.051,1272.002,235.121 - 0.98),            
+        vec3(883.233,1269.009,234.920 - 0.98),
+        vec3(885.192,1271.949,235.108 - 0.98)
+    }
 
-        if charAppearence ~= nil then
-            for i = 1, #charAppearence do           
+    if charAppearence ~= nil then
+        for i = 1, #charAppearence do           
 
-                if not HasModelLoaded(charAppearence[i][1].model) then
-                    RequestModel(charAppearence[i][1].model)
-                    while not HasModelLoaded(charAppearence[i][1].model) do
-                        Citizen.Wait(10)
-                    end
+            if not HasModelLoaded(charAppearence[i][1].model) then
+                RequestModel(charAppearence[i][1].model)
+                while not HasModelLoaded(charAppearence[i][1].model) do
+                    Citizen.Wait(10)
                 end
-
-                local ped = CreatePed(charAppearence[i][1].model, fakePedCoords[i], 350.77, 0, 0)
-
-                Citizen.Wait(300)
-                
-                cAPI.SetSkin(ped, charAppearence[i][1].enabledComponents)   
-
-                cAPI.SetPedFaceFeature(ped, charAppearence[i][1].faceFeatures)
-                
-                cAPI.SetPedScale(ped, charAppearence[i][1].pedHeight)
-
-                cAPI.SetPedPortAndWeight(ped, json.decode(charAppearence[i][1].enabledComponents)["bodySize"], charAppearence[i][1].pedWeight)
-                
-                if charAppearence[i][1].clothes ~= nil then
-                    cAPI.SetSkin(ped, charAppearence[i][1].clothes)
-                end
-
-                table.insert(fakePeds, ped)
-                            
-                local coords = GetEntityCoords(ped, false)
-
-                Citizen.InvokeNative(0x322BFDEA666E2B0E, ped,  coords.x, coords.y, coords.z, 5.0, -1, 1, 1, 1, 1)
             end
+
+            local ped = CreatePed(charAppearence[i][1].model, fakePedCoords[i], 350.77, 0, 0)
+
+            Citizen.Wait(300)
+            
+            cAPI.SetSkin(ped, charAppearence[i][1].enabledComponents)   
+
+            cAPI.SetPedFaceFeature(ped, charAppearence[i][1].faceFeatures)
+            
+            cAPI.SetPedScale(ped, charAppearence[i][1].pedHeight)
+
+            cAPI.SetPedPortAndWeight(ped, json.decode(charAppearence[i][1].enabledComponents)["bodySize"], charAppearence[i][1].pedWeight)
+            
+            if charAppearence[i][1].clothes ~= nil then
+                cAPI.SetSkin(ped, charAppearence[i][1].clothes)
+            end
+
+            table.insert(fakePeds, ped)
+                        
+            local coords = GetEntityCoords(ped, false)
+
+            Citizen.InvokeNative(0x322BFDEA666E2B0E, ped,  coords.x, coords.y, coords.z, 5.0, -1, 1, 1, 1, 1)
         end
     end
-)
+end)
 
 
 RegisterNetEvent("FRP:IDENTITY:SetTime")
-AddEventHandler(
-    "FRP:IDENTITY:SetTime",
-    function()
+AddEventHandler("FRP:IDENTITY:SetTime",function()
     while not playerSelected do
         Citizen.Wait(0)
         SetClockTime(14,01,01)
     end
-
 end)
 
 function Destroy()
@@ -155,14 +144,11 @@ function Destroy()
     ]]
 end
 
-RegisterNUICallback(
-    "createCharacter",
-    function()
-        SetNuiFocus(false, false)
-        TriggerEvent("FRP:CHARCREATION:starting")
-        Destroy()
-    end
-)
+RegisterNUICallback("createCharacter",function()
+    SetNuiFocus(false, false)
+    TriggerEvent("FRP:CHARCREATION:starting")
+    Destroy()
+end)
 
 function createTempCam()
     tempCam = CreateCam("DEFAULT_SCRIPTED_CAMERA")
@@ -183,54 +169,42 @@ end
 
 
 
-RegisterNUICallback(
-    "selectCharacter",
-    function(index)
-        index = index + 1
+RegisterNUICallback("selectCharacter",function(index)
+    index = index + 1
 
-        if tempCam == nil then
-            createTempCam()
-        end
-
-        interpCamera(fakePeds[index])
+    if tempCam == nil then
+        createTempCam()
     end
-)
+
+    interpCamera(fakePeds[index])
+end)
 
 
 
-RegisterNUICallback(
-    "spawnCharacterSelected",
-    function(charId)
-        SetNuiFocus(false, false)
-        DisplayHud(true)
-        --TriggerServerEvent("FRP:IDENTITY:selectCharacter", charId)
-        TriggerServerEvent("FRP:LOGIN:LoginMenu", charId)
+RegisterNUICallback("spawnCharacterSelected",function(charId)
+    SetNuiFocus(false, false)
+    DisplayHud(true)
+    --TriggerServerEvent("FRP:IDENTITY:selectCharacter", charId)
+    TriggerServerEvent("FRP:LOGIN:LoginMenu", charId)
 
-        cAPI.StartFade(500)
-        Citizen.Wait(500)
-        Destroy()        
-        playerSelected = false
-        --NetworkSetEntityInvisibleToNetwork(PlayerPedId(), false)
-        --SetEntityInvincible(PlayerPedId(), false)
-        --Wait(1800)
-        --cAPI.EndFade(500)
-    end
-)
+    cAPI.StartFade(500)
+    Citizen.Wait(500)
+    Destroy()        
+    playerSelected = false
+    --NetworkSetEntityInvisibleToNetwork(PlayerPedId(), false)
+    --SetEntityInvincible(PlayerPedId(), false)
+    --Wait(1800)
+    --cAPI.EndFade(500)
+end)
 
-RegisterNUICallback(
-    "deleteCharacter",
-    function(charId)
-        TriggerServerEvent("FRP:IDENTITY:deleteCharacter", charId)
-        TriggerEvent("FRP:NOTIFY:Simple", "Personagem deletado.")
-    end
-)
+RegisterNUICallback("deleteCharacter",function(charId)
+    TriggerServerEvent("FRP:IDENTITY:deleteCharacter", charId)
+    TriggerEvent("FRP:NOTIFY:Simple", "Personagem deletado.")
+end)
 
-RegisterCommand(
-    "Deletarenti",
-    function()
-        Destroy()
-    end
-)
+RegisterCommand("Deletarenti",function()
+    Destroy()
+end)
 
 function createCamera()
     DisplayHud(false)
@@ -246,11 +220,8 @@ function createCamera()
     RenderScriptCams(true, false, 1, true, true)
 end
 
-AddEventHandler(
-    "onResourceStop",
-    function(resourceName)
-        if resourceName == GetCurrentResourceName() or resourceName == "_core" then
-            Destroy()
-        end
+AddEventHandler("onResourceStop",function(resourceName)
+    if resourceName == GetCurrentResourceName() or resourceName == "_core" then
+        Destroy()
     end
-)
+end)
