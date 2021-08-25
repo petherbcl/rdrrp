@@ -50,7 +50,7 @@ body{
 .header-text{
 	width: 88%;
 	height: 7vh;
-	font-size:2em;
+	font-size:1.5em;
 	display: flex;
 	background: url(images/menu_header_1a.png);
 	background-repeat: no-repeat;
