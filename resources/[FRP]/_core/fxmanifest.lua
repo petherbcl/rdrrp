@@ -10,6 +10,8 @@ client_scripts {
 	"config/Items.lua",
 	"config/CraftableItems.lua",
 	"config/Permissions.lua",
+	"config/Components.lua",
+	"config/Overlays.js",
 	---------------------
 	"client/_Main.lua",
 	"client/BasicNeeds.lua",
@@ -20,6 +22,7 @@ client_scripts {
 	"client/Player.lua",
 	"client/Wrapper.lua",
 	"client/Area.lua",
+	"client/Blips.lua",
 }
 
 server_scripts {
@@ -68,3 +71,15 @@ files {
 }
 
 ui_page "html/index.html"
+
+
+exports {	
+	'setOverlayData',
+	'colorPalettes',
+	'textureTypes',
+	'overlaysInfo',
+	'clothOverlayItems',
+	'overlayAllLayers',
+	'setOverlaySelected',
+	'getDataCreator'
+}

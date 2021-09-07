@@ -5,7 +5,9 @@ API = Proxy.getInterface('API')
 cAPI = Tunnel.getInterface('API')
 
 RegisterServerEvent('FRP:IDENTITY:DisplayCharSelection')
-AddEventHandler('FRP:IDENTITY:DisplayCharSelection',function(User)
+AddEventHandler(
+    'FRP:IDENTITY:DisplayCharSelection',
+    function(User)
         if User == nil then
             return
         end
@@ -25,7 +27,9 @@ AddEventHandler('FRP:IDENTITY:DisplayCharSelection',function(User)
 )
 
 RegisterServerEvent('FRP:IDENTITY:DisplayCharSelectionWithUser')
-AddEventHandler('FRP:IDENTITY:DisplayCharSelectionWithUser',function(User)
+AddEventHandler(
+    'FRP:IDENTITY:DisplayCharSelectionWithUser',
+    function(User)
         if User == nil then
             return
         end
@@ -42,7 +46,9 @@ AddEventHandler('FRP:IDENTITY:DisplayCharSelectionWithUser',function(User)
 )
 
 RegisterServerEvent('FRP:IDENTITY:selectCharacter')
-AddEventHandler('FRP:IDENTITY:selectCharacter',function(cid)
+AddEventHandler(
+    'FRP:IDENTITY:selectCharacter',
+    function(cid)
         local _source = source
         local User = API.getUserFromSource(_source)
         User:setCharacter(cid)
@@ -50,7 +56,9 @@ AddEventHandler('FRP:IDENTITY:selectCharacter',function(cid)
 )
 
 RegisterServerEvent('FRP:IDENTITY:deleteCharacter')
-AddEventHandler('FRP:IDENTITY:deleteCharacter',function(cid)
+AddEventHandler(
+    'FRP:IDENTITY:deleteCharacter',
+    function(cid)
         local _source = source
         local User = API.getUserFromSource(_source)
         User:deleteCharacter(cid)

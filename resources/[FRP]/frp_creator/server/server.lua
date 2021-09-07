@@ -4,27 +4,28 @@ local Proxy = module('_core', 'lib/Proxy')
 API = Proxy.getInterface('API')
 cAPI = Tunnel.getInterface('API')
 
-RegisterNetEvent('FRP:CREATOR:saveCreation')
-AddEventHandler('FRP:CREATOR:saveCreation', function(characterName, Age, SkinMdf, isMale)
+RegisterNetEvent('PersonaCreatorHandler.requestCreatePersona')
+AddEventHandler('PersonaCreatorHandler.requestCreatePersona', function(playerProfileCreation)
     local _source = source
     local User = API.getUserFromSource(_source)
-    local Character = User:createCharacter(characterName, Age, isMale)
-    local pedModel 
+
+    local Character = User:createCharacter(playerProfileCreation.name, playerProfileCreation.age, playerProfileCreation.isMale)
+
     if Character ~= nil then
-        
-        Character:setSkinData(Character:getId(), SkinMdf, isMale) 
+                
+        Character:createAppearance(Character:getId(), playerProfileCreation)
 
         Character:setData(Character:getId(), "metaData", "hunger", 100)
         Character:setData(Character:getId(), "metaData", "thirst", 100)
         Character:setData(Character:getId(), "metaData", "banco", 0)
 
-        local encoded = json.encode({ Config.FirstSpawnCoords[1], Config.FirstSpawnCoords[2], Config.FirstSpawnCoords[3] })
-        --local encoded = json.encode({-1099.470,-1839.129,60.327})
-
+        local encoded = json.encode({-1099.470,-1839.129,60.327})
         Character:setData(Character:getId(), "metaData", "position", encoded)       
         User:setCharacter(Character:getId()) -- Will draw itself      
     end
+
     Wait(1000)
+
     TriggerClientEvent('FRP:CREATOR:FirstSpawn', _source)
 
 end)

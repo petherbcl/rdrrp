@@ -1,31 +1,43 @@
 fx_version "adamant"
 games {"rdr3"}
-
 rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
 
+client_scripts {
+	"@_core/lib/utils.lua",
+	"@_core/config/Components.lua",
+	"@_core/config/Overlays.js",
 
-client_scripts{
-    "@_core/lib/utils.lua",
-    'config/mp_male.lua',
     'config.lua',
-	'config/mp_female.lua',
-    'client/client.lua',
-    'client/spawn.lua'
+	--'config/components.lua',
+	--'config/overlay.js',
+	'config/data_ui.js',
+
+	'client/customization.lua',
+	'client/scene.lua',
+	'client/spawn.lua',
+	--'client/overlay.lua',
 }
 
-server_scripts{
-    "@_core/lib/utils.lua",
-    'config.lua',
-    'server.lua'}
+server_scripts {
+	"@_core/lib/utils.lua",
+	'server/server.lua'
+}
 
+files{
+	'./ui/*',
+	'./ui/css/*',
+	'./ui/js/*'
+}
 
-ui_page('client/html/index.html')
+ui_page 'ui/index.html'
 
-files({
-    'client/html/img/*',
-    'client/html/fonts/*',
-    'client/html/*',
-    'client/html/webfonts/*',
-    'client/html/css/*',
-    'server.lua'
-})
+exports {	
+	'setOverlayData',
+	'colorPalettes',
+	'textureTypes',
+	'overlaysInfo',
+	'clothOverlayItems',
+	'overlayAllLayers',
+	'setOverlaySelected',
+	'getDataCreator'
+}

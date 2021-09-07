@@ -5,29 +5,18 @@ cAPI = Proxy.getInterface("API")
 API = Tunnel.getInterface("API")
 
 local FirstSpawn = false
+
 local car = nil
 local ped = nil
-local coords = vector3(2539.83,-1129.33,50.03)
 
-
-RegisterCommand('first', function()
-    TriggerEvent('FRP:CREATOR:FirstSpawn')
-end)
---[[
-RegisterCommand('goped', function()
-   -- TriggerMusicEvent("REDLP_START")
-  --  TriggerMusicEvent("REHR_START") -- MELHOR
-  TriggerMusicEvent("REHR_START")
-end)
-RegisterCommand('first2', function()
-    TriggerMusicEvent("MC_MUSIC_STOP")
-end) ]]
-
+local coordsSpawn = vector3(2539.83,-1129.33,50.03)
 
 RegisterNetEvent("FRP:CREATOR:FirstSpawn")
-AddEventHandler("FRP:CREATOR:FirstSpawn",function()
+AddEventHandler(
+    "FRP:CREATOR:FirstSpawn",
+    function()
         if not FirstSpawn and Config.EnableCutscene then
-            TriggerMusicEvent("REHR_START")            
+            TriggerMusicEvent("REHR_START")
             NetworkSetEntityInvisibleToNetwork(PlayerPedId(), true)           
             Wait(100)
             SetEntityCoords(PlayerPedId(), 2520.09,-358.05,41.61)
@@ -37,13 +26,12 @@ AddEventHandler("FRP:CREATOR:FirstSpawn",function()
             TriggerEvent('FRP:CREATOR:CreatePedOnVehicle', 'CS_BivCoachDriver')
             Wait(3000)
             SetPedIntoVehicle(PlayerPedId(), car, 1)
-            Wait(2000)
+            Wait(2000)               
             TriggerEvent('FRP:CREATOR:StartNotify')
             FirstSpawn = true
         else            
-            TriggerEvent('FRP:CREATOR:StartNotify')
-            local spwan = Config.FirstSpawnCoords
-            SetEntityCoords(PlayerPedId(), spwan[1], spwan[2], spwan[3])
+            TriggerEvent('FRP:CREATOR:StartNotify')            
+            SetEntityCoords(PlayerPedId(), Config.FirstSpawnCoords)
             FirstSpawn = false
         end
     end
@@ -55,7 +43,7 @@ Citizen.CreateThread(
             Wait(10)
             if FirstSpawn then	
                 local pcoords = GetEntityCoords(PlayerPedId())                
-                local dst = #(coords - pcoords)	   
+                local dst = #(coordsSpawn - pcoords)	   
                 if dst < 5 then
                     RemovePedFromGroup(ped, GetPedGroupIndex(PlayerPedId()))
                     Wait(100)
@@ -139,7 +127,7 @@ AddEventHandler(
 			end
         end
         
-		ped = CreatePed(pedModelHash, coords, GetEntityHeading(PlayerPedId()), false, 0)        
+		ped = CreatePed(pedModelHash, coordsSpawn, GetEntityHeading(PlayerPedId()), false, 0)        
         Citizen.InvokeNative(0x283978A15512B2FE, ped, true)
         Citizen.InvokeNative(0x58A850EAEE20FAA3, ped)
 		

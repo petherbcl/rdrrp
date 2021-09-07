@@ -328,6 +328,6 @@ function API.User(source, id, ipAddress)
             return ""
         end
     end
-
+    
     return self
 end

@@ -13,6 +13,36 @@ AddEventHandler(
     function(characterArray, charAppearence)
         Destroy()
 
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
+
         cAPI.PlayerAsInitialized(false)
 
         local playerPed = PlayerPedId()
@@ -66,17 +96,21 @@ AddEventHandler(
                 
                 cAPI.SetPedScale(ped, charAppearence[i][1].pedHeight)
 
-                cAPI.SetPedPortAndWeight(ped, json.decode(charAppearence[i][1].enabledComponents)["bodySize"], charAppearence[i][1].pedWeight)
+                cAPI.SetPedOverlay(ped, charAppearence[i][1].overlays)
                 
+                local bodySize = json.decode(charAppearence[i][1].enabledComponents)
+
+                cAPI.SetPedPortAndWeight(ped, tonumber(bodySize['porte']), charAppearence[i][1].pedWeight)
+
                 if charAppearence[i][1].clothes ~= nil then
-                    cAPI.SetSkin(ped, charAppearence[i][1].clothes)
+                    cAPI.SetSkin(ped, charAppearence[i][1].clothes)   
                 end
 
                 table.insert(fakePeds, ped)
                             
                 local coords = GetEntityCoords(ped, false)
-
-                Citizen.InvokeNative(0x322BFDEA666E2B0E, ped,  coords.x, coords.y, coords.z, 5.0, -1, 1, 1, 1, 1)
+                
+                Citizen.InvokeNative(0x322BFDEA666E2B0E, ped,  coords.x, coords.y, coords.z, 5.0, -1, 1, 1, 1, 1)                
             end
         end
     end
@@ -151,18 +185,18 @@ function interpCamera(entity)
 end
 
 
-
-
 RegisterNUICallback(
     "selectCharacter",
     function(index)
         index = index + 1
 
-        if tempCam == nil then
-            createTempCam()
-        end
+        if fakePeds[index] ~= nil then
+            if tempCam == nil then
+                createTempCam()
+            end
 
-        interpCamera(fakePeds[index])
+            interpCamera(fakePeds[index])
+        end
     end
 )
 
