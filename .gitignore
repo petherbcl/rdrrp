@@ -2,3 +2,5 @@ cache/chat/webpack.config.js.json
 *.json
 *.db
 *.rpf
+*.db
+*.rpf
