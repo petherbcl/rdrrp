@@ -246,3 +246,11 @@ function API.RemoveTents(source, id, itemId)
 
     return Inventory:addItem(itemId, 1)
 end
+
+
+function API.isCharIdLogged(charid)
+    if API.chars[charid] then
+        return true
+    end
+    return false
+end
