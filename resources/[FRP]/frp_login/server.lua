@@ -42,7 +42,6 @@ AddEventHandler("FRP:LOGIN:spawnlocation",function(cid,loc)
         end
 
         cAPI.SetPlayerPosition(_source, locposition[1] or 0, locposition[2] or 0, locposition[3] or 0)
-
         User:setCharacter(cid)
 
     end

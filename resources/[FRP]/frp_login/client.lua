@@ -59,11 +59,11 @@ AddEventHandler("FRP:LOGIN:reloglocation",function(cid)
 
 	local playerPed = PlayerPedId()
     --Wait(1500)
-    SetFocusEntity(playerPed) 
+    SetFocusEntity(playerPed)
+	NetworkSetEntityInvisibleToNetwork(playerPed, false)
     SetEntityInvincible(playerPed, false)
     SetEntityVisible(playerPed, true)
-    NetworkSetEntityInvisibleToNetwork(playerPed, false)
-
+    
 	Wait(1500)
 	cAPI.EndFade(500)
 end)
