@@ -80,6 +80,14 @@ function startCustomizationScene(characterData)
     SetNuiFocus(true,true)  
     SetNuiFocusKeepInput(true)
     
+-- ##################
+    local isPedMale = false
+    if IsPedMale(pedHandle) then
+        isPedMale = true
+    end
+    playerProfileCreation.isMale = isPedMale
+    defaultChar()
+-- ##################
 
     SendNUIMessage({
         type = 'open',
@@ -99,10 +107,28 @@ RegisterNUICallback(
 RegisterNUICallback(
     "state:Customization:OverlayType",
     function(data)
-
+        local exist = false
         exports.frp_creator:setOverlayData(pedHandle, data)
 
-        table.insert(playerAppearanceOverlay, data)
+        for x,y in pairs(playerAppearanceOverlay) do
+            if y.compType == data.compType then
+                exist = true
+                playerAppearanceOverlay[x].offsetModel = data.offsetModel
+                playerAppearanceOverlay[x].offsetVariation = data.offsetVariation
+                playerAppearanceOverlay[x].compType = data.compType
+                playerAppearanceOverlay[x].skinTone = data.skinTone
+                playerAppearanceOverlay[x].opacity = data.opacity
+            end
+
+            -- UPDATE skinTone
+            if data.compType == 'heads' then
+                playerAppearanceOverlay[x].skinTone = data.skinTone
+            end
+        end
+
+        if not exist then
+            table.insert(playerAppearanceOverlay, data)
+        end
     end
 )
 
@@ -118,14 +144,22 @@ function setComponentPlayer(data)
     end
     
     if data.faceFeatureIndex > 1 then
-        
+        local exist = false
         interpolateToCamIndex(staticInterpolableCams, 3)
 
         local hash = data.faceFeatureIndex;
         local value = componentIndex;    
-print("hash : "..hash)
-print("index : "..value)
-        table.insert(playerProfileCreation.faceFeatures, {['hash'] = hash, ['index'] = value})     
+
+        for x,y in pairs(playerProfileCreation.faceFeatures) do
+            if y.hash == hash then
+                exist = true
+                playerProfileCreation.faceFeatures[x].index = value
+            end
+        end
+
+        if not exist then
+            table.insert(playerProfileCreation.faceFeatures, {['hash'] = hash, ['index'] = value})     
+        end
 
         Citizen.InvokeNative(0x5653AB26C82938CF, pedHandle, tonumber(hash), tonumber(value))
         Citizen.InvokeNative(0xCC8CA3E88256E58F, pedHandle, 0, 1, 1, 1, 0)
@@ -346,7 +380,9 @@ RegisterNUICallback("CharacterCreation.Done",function(data)
         playerProfileCreation.isMale = isPedMale
         playerProfileCreation.pedModel = pedModel
         playerProfileCreation.age = data.age.value;
-        
+
+        defaultChar()
+
         playerProfileCreation.components = json.encode(playerAppearanceComponents);
         playerProfileCreation.overlays = json.encode(playerAppearanceOverlay);
 
@@ -364,3 +400,185 @@ RegisterNUICallback("CharacterCreation.Done",function(data)
         cAPI.EndFade(500)
     end
 )
+
+function defaultChar()
+
+    if playerAppearanceComponents["BODIES_UPPER"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["BODIES_UPPER"] = {1,1}
+        else
+            playerAppearanceComponents["BODIES_UPPER"] = {1,1}
+        end
+    end
+    if playerAppearanceComponents["boots"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["boots"] = {1,1}
+        else
+            playerAppearanceComponents["boots"] = {1,1}
+        end
+    end
+    if playerAppearanceComponents["eyes"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["eyes"] = {1,1}
+        else
+            playerAppearanceComponents["eyes"] = {1,1}
+        end
+    end
+    if playerAppearanceComponents["hair"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["hair"] = {1,2}
+        else
+            playerAppearanceComponents["hair"] = {1,2}
+        end
+    end
+    if playerAppearanceComponents["heads"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["heads"] = {2,1}
+        else
+            playerAppearanceComponents["heads"] = {1,1}
+        end
+    end
+    if playerAppearanceComponents["pants"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["pants"] = {3,1}
+        else
+            playerAppearanceComponents["pants"] = {5,1}
+        end
+    end
+    if playerAppearanceComponents["porte"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["porte"] = 135
+        else
+            playerAppearanceComponents["porte"] = 117
+        end
+    end
+    if playerAppearanceComponents["shirts_full"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["shirts_full"] = {5,1}
+        else
+            playerAppearanceComponents["shirts_full"] = {2,1}
+        end
+    end
+    if playerAppearanceComponents["teeth"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["teeth"] = {1,1}
+        else
+            playerAppearanceComponents["teeth"] = {1,1}
+        end
+    end
+    if playerAppearanceComponents["mustache"] == nil then
+        if playerProfileCreation.isMale then
+            playerAppearanceComponents["mustache"] = {7,2}
+        end
+    end
+
+    if next(playerAppearanceOverlay) == nil then
+        if playerProfileCreation.isMale then
+            table.insert(playerAppearanceOverlay,{compType="heads",offsetModel=0,opacity=0,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="ageing",offsetModel=1,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="scars",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="acne",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="complex",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="disc",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="freckles",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="grime",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="moles",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="spots",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="eyebrows",offsetModel=1,opacity=1,skinTone=1,offsetVariation=1})
+        else
+            table.insert(playerAppearanceOverlay,{compType="heads",offsetModel=0,opacity=0,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="ageing",offsetModel=1,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="scars",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="acne",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="complex",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="disc",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="freckles",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="grime",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="moles",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="spots",offsetModel=0,opacity=1,skinTone=1,offsetVariation=0})
+            table.insert(playerAppearanceOverlay,{compType="eyebrows",offsetModel=1,opacity=1,skinTone=1,offsetVariation=1})
+        end
+    end
+
+    if next(playerProfileCreation.faceFeatures) == nil then
+        if playerProfileCreation.isMale then
+            table.insert(playerProfileCreation.faceFeatures, {hash=34006,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=43625,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=61541,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=31427,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=16653,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=50037,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=37313,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=6656,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=13709,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=43983,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=27147,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=7019,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=35627,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=60996,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=42318,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=53862,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=56827,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=19153,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=12281,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=13059,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=60720,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=46798,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=49231,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=10308,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=13425,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=13489,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=28287,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=1013,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=61782,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=22046,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=58147,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=50098,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=15375,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=7670,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=60334,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=36106,index="0.0"})            
+        else
+            table.insert(playerProfileCreation.faceFeatures, {hash=34006,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=43625,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=61541,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=31427,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=16653,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=50037,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=37313,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=6656,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=13709,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=43983,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=27147,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=7019,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=35627,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=60996,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=42318,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=53862,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=56827,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=19153,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=12281,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=13059,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=60720,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=46798,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=49231,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=10308,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=13425,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=13489,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=28287,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=1013,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=61782,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=22046,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=58147,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=50098,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=15375,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=7670,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=60334,index="0.0"})
+            table.insert(playerProfileCreation.faceFeatures, {hash=36106,index="0.0"})
+        end
+    end
+
+    if playerProfileCreation.waistType == nil then
+        playerProfileCreation.waistType = 11
+    end
+end
