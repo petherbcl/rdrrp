@@ -13,36 +13,6 @@ AddEventHandler(
     function(characterArray, charAppearence)
         Destroy()
 
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-        -- O characterARRAY tá enviando TODA INFORMAÇÃO DO CHARACTER
-
         cAPI.PlayerAsInitialized(false)
 
         local playerPed = PlayerPedId()
