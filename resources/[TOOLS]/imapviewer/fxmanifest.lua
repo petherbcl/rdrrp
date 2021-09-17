@@ -7,3 +7,8 @@ client_scripts {
     "imaps_with_coords_and_heading.lua",
     "client.lua"
 }
+
+server_scripts {
+    "imaps_with_coords_and_heading.lua",
+    "server.lua"
+}

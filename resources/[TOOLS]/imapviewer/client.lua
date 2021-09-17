@@ -52,16 +52,20 @@ function ToggleViewer()
                         local imapPosition = vec3(d.x, d.y, d.z)
 
                         local hex = "0x" .. DEC_HEX(imapHash)
-
-                        DrawText3D(d.x, d.y, d.z + ((_ - 1) * 0.7), "" .. hex, 0, 100, 255, 200, 10, 0)
+                        if IsImapActive(imapHash) then
+                            DrawText3D(d.x, d.y, d.z + ((_ - 1) * 0.7), "" .. hex, 0, 100, 255, 200, 10, 0)
+                        else
+                            DrawText3D(d.x, d.y, d.z + ((_ - 1) * 0.7), "" .. hex, 255, 255, 0, 200, 10, 0)
+                        end
                     end
 
-                    if IsControlJustPressed(0, 0xDFF812F9) then
+                    if IsControlJustPressed(0, 0xD8F73058) then -- [U]
                         for _, imapHash in pairs(selectedImaps) do
                             if IsImapActive(imapHash) then
                                 RemoveImap(imapHash)
                             else
                                 RequestImap(imapHash)
+                                TriggerServerEvent("FRP:IMAPVIEWR:showcode",imapHash)
                             end
                         end
                     end
