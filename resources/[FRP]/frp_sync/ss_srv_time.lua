@@ -1,3 +1,8 @@
+local Tunnel = module("_core", "lib/Tunnel")
+local Proxy = module("_core", "lib/Proxy")
+API = Proxy.getInterface("API")
+cAPI = Tunnel.getInterface("API")
+
 local date = os.date('*t')
 local secondOfDay = (7 * 3600) + (30 * 60) + 0
 local frozen = false
@@ -85,12 +90,14 @@ end, true)
 RegisterCommand('freezetime', function(source,args,rawCommand)
     h = math.floor( secondOfDay / 3600 )
     m = math.floor( (secondOfDay - (h * 3600)) / 60 )
+    local User = API.getUserFromSource(source)
+    local Character = User:getCharacter()
  
     if source == 0 then
         TriggerEvent("freezeTime")
         TraceMsg("CONSOLE has frozen("..tostring(frozen)..") time at " .. string.format("%02d", h) .. ":" .. string.format("%02d", m))
     else
-        if IsPlayerAceAllowed(source, "freezeTime") then
+        if Character:hasGroupOrInheritance("admin") then
             TriggerEvent("freezeTime")
             TraceMsg(GetPlayerName(source).." has frozen("..tostring(frozen)..") time at " .. string.format("%02d", h) .. ":" .. string.format("%02d", m) .. ".")
         else
