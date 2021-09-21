@@ -66,7 +66,7 @@ local WAIST_TYPES = {
 }
 
 function cAPI.SetPedPortAndWeight(ped, bodySize, pedWeight)
-    print('sizeee', bodySize, pedWeight)
+    --print('sizeee', bodySize, pedWeight)
     Citizen.InvokeNative(0xA5BAE410B03E7371, ped, bodySize, false, true)     
     Citizen.InvokeNative(0xCC8CA3E88256E58F, ped, 0, 1, 1, 1, 0) 
 
