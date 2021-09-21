@@ -398,3 +398,16 @@ AddEventHandler(
 		Citizen.InvokeNative(0x5E3BDDBCB83F3D84, PlayerPedId(), GetHashKey("WEAPON_REVOLVER_SCHOFIELD_GOLDEN"), 100, true, 0, true, 1.0)
 	end
 )
+
+RegisterCommand(
+	"startimap",
+	function(source, args, rawCommand)
+		RequestImap(tonumber(args[1]))
+	end
+)
+RegisterCommand(
+	"remimap",
+	function(source, args, rawCommand)
+		RemoveImap(tonumber(args[1]))
+	end
+)

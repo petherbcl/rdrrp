@@ -1,21 +1,116 @@
-RequestImap(1879779330)
--- sign outside tent version 1
-RequestImap(1104143966)
--- sign outside tent version 2
-RequestImap(1027093524) --sign outside tent version 3
-RequestImap(-1617847332) -- sign outside tent version 4
-RequestImap(-763477089) -- partial door flap open
-RequestImap(317070801) -- full closed flap
+
+RequestImap(1879779330)  -- sign outside tent version 1 -349.0422668457,707.43475341796,116.79002380372
+--RequestImap(1104143966) -- sign outside tent version 2 -349.0422668457,707.43475341796,116.79002380372
+--RequestImap(1027093524) --sign outside tent version 3 -349.0422668457,707.43475341796,116.79002380372
+--RequestImap(-1617847332) -- sign outside tent version 4 -349.0422668457,707.43475341796,116.79002380372
+RequestImap(-763477089) -- partial door flap open -352.48498535156,y=704.7182006836,z=118.10903167724
+--RequestImap(317070801) -- full closed flap -352.46951293946,y=704.73229980468,z=118.10795593262
+
+
+--##########################################
+--               ST DENNIS 
+--##########################################
+
 RequestImap(619024057) -- Saint Denis Doctors office full interior with doors
+--RequestImap(-473077489) -- Saint Denis Doctors office closed
 
-------------------------------------- Green House Valentine
-RequestImap(903666582)
-------------------------------------- #### END Green House ####
+RequestImap(1405627586) -- portao na mansão Claremont
+RequestImap(206289712) -- varanda na mansão Claremont
 
-------------------------------------- Railroad Stuff
---RequestImap(-794503195) -- Broken Bridge and Pieces Pieces  -- 520 1754 187
+RequestImap(1056170594) -- navio POKER CHAMPIONSHIP
+RequestImap(-873881483) -- interior navio POKER CHAMPIONSHIP
+RequestImap(881979872) -- interior navio POKER CHAMPIONSHIP
+RequestImap(1157695860) -- interior navio POKER CHAMPIONSHIP - luzes mais fortes ?
+RequestImap(1859948183) -- interior navio POKER CHAMPIONSHIP ?
+RequestImap(0x08B669DF) -- navio POKER CHAMPIONSHIP- passadiço de saida
 
-------------------------------------- Central Union Train Mission
+ 
+RequestImap(-723094901) -- Mais barcos no rio
+RequestImap(-801609437) -- Mais barcos atracados
+
+RequestImap(165972019) -- zona de construção
+
+RequestImap(0xDC7F11FC) -- paredes lojas do lado do mercado no trem
+RequestImap(0xEFA9DBBB) -- lojas do lado do mercado no trem
+
+RequestImap(0x99277AA3) -- coloca janela no hotel da estação
+
+--RequestImap(0xD8053169) --CADEIRA ELETRICA
+--RequestImap(0xA3F562DB) -- CADEIRA ELETRICA
+--RequestImap(0x815FFED3) --  CADEIRA  ELETRICA
+
+RequestImap(0xFE33D422)
+RequestImap(0x59F3ABC7)
+RequestImap(0xA8E2D236)
+
+--Banco Sant denis
+RequestImap(0x3B5649C4) --parede de fora
+RequestImap(0x472AB68D) --parede de fora
+RequestImap(0x3CA39CE3) --parede de fora
+RequestImap(0xC92232A0) --parede de fora
+RequestImap(0XDBFE4AC2) --grades
+
+--Cinema
+RequestImap(0x830F5B56) --sala
+RequestImap(0xCA785D9C) --sala
+RequestImap(0x9C9F8C62) --anuncio
+RequestImap(0x9BF02141) --anuncio
+
+--bar
+RequestImap(0xD602C52F) -- interior
+
+-- Museu Saint Denis
+RequestImap(0x6E6463C4) -- escadas
+RequestImap(0xA72FE0A6) -- interior
+RequestImap(0x70F55A86) -- anuncio
+RequestImap(0xF3C62BD3) -- janelas
+
+--farmacia
+RequestImap(0x87DD7432) -- interior
+ 
+--Porto
+RequestImap(0x367A7709) 
+RequestImap(0x64164BD7) 
+RequestImap(0x899EAF52)
+
+RequestImap(0xE32C1775)
+
+
+--##########################################
+
+
+
+--##########################################
+--               VALENTINE 
+--##########################################
+
+RequestImap(903666582) --Green House Valentine
+RequestImap(-1475403379) -- portao fechado estabulo  -228.039,645.093,113.272
+
+
+--##########################################
+
+
+
+------------- Bacchus Bridge ---------------------
+--RequestImap(-794503195) -- Bacchus Bridge - Ponte partida  -- 520,1754,187
+RequestImap(-1364392658) -- Bacchus Bridge - Ponte inteira
+---------------------------------------------
+
+------------- EMERALD ---------------------
+RequestImap(-1377975054) --FIX GROUND EMERALD
+RequestImap(-471302085) --ervas
+RequestImap(897624424) --ervas
+RequestImap(-1327148782) --ervas
+RequestImap(-1377975054)
+
+---------------------------------------------
+
+
+--##########################################
+--       Central Union Train Mission 
+--##########################################
+
 RequestImap(2077623691) -- Track Bed - Full Legnth
 RequestImap(-555736180) -- Crossing 1818
 RequestImap(-693812694) --Section 1 1875
@@ -31,10 +126,43 @@ RequestImap(-142900294) --Section 9 2229.82
 RequestImap(-84516711) --Run Down Closed Station
 RequestImap(-657241692) --Oil Pipe
 RequestImap(-1112373128) --Oil Tower
-------------------------------------- #### Heartland Oil Station ####
-------------------------------------- Hole Near Rhodes - Woman's Rights Mission Start
-RequestImap(1277540472) -- 1433 -1591 69
-------------------------------------- #### END OF WOMAN'S RIGHTS ####
+
+--##########################################
+
+
+
+--##########################################
+--               RHODES 
+--##########################################
+
+------------------------------------- Hole Near Rhodes 1433 -1591 69
+--RequestImap(1277540472) -- tampa o buraco com caminho de terra
+--RequestImap(-559257162) -- adiciona flores
+--RequestImap(-1276109918) -- adiciona casa
+--RequestImap(-1386423483) -- adiciona interior da casa
+
+RequestImap(979670262) -- tampa o buraco com erva
+RequestImap(-559257162) -- adiciona flores
+RequestImap(651621232) -- adiciona arveores
+RequestImap(1133172356) -- adiciona arbusto e pedras
+
+RequestImap(0x1CB53284) -- grades no banco
+RequestImap(0x1EE1FF96) -- parede de fora do cofre
+
+RequestImap(-1036501021) -- acougue
+
+RequestImap(0x2DC45AC4) --tailer em rhodes
+RequestImap(0xE2BEB5B6) --tailer em rhodes
+RequestImap(0x33EA030D) --tailer em rhodes
+RequestImap(0x33D5AF43) --tailer em rhodes
+RequestImap(0xBB4E8E0D) --tailer em rhodes
+RequestImap(0x6557862D) --interior casa em rhodes
+
+RequestImap(0x14D4BE46) --parede fora prisao
+
+------------------------------------- #### END OF Hole Near Rhodes ####
+
+
 ------------------------------------- Story Camp Near Rhodes
 -- GRASS and GROUND
 RequestImap(-1496619689) -- Green Ground 670 -1236 44
@@ -45,7 +173,7 @@ RequestImap(-376056363) -- Version 3 of Grass and Ferns
 RequestImap(519091847) -- Version 4 of Grass and Ferns
 RequestImap(-1225606266) -- Adds bush to 692 -1263 44
 RequestImap(-1874720370) -- Lots of ferns, weeds and tall grass
-RequestImap(-1936937394) -- Grass, Flowers and weeds]]
+RequestImap(-1936937394) -- Grass, Flowers and weeds
 
 -- German Guys Wagon
 RequestImap(1679038623) -- Wagon v2  657 -1231 44
@@ -152,39 +280,67 @@ RequestImap(-2144587490) -- Covers small plot hole with mound of dirt
 
 ------------------------------------- Braithwaite Mansion
 --Mansion Interior
--- RequestImap(1149195254)  --Brathwaite House Shell
--- RequestImap(58066174)  -- Interior
+RequestImap(1149195254)  --Brathwaite House Shell
+ RequestImap(58066174)  -- Interior
 -- -- Mansion Exterior
--- RequestImap(-1521525254)  --Green House Valentine -- Exterior Trees and Flowers 1(Run 1 and 2 together)
--- RequestImap(-761186147)  --Green House Valentine -- Exterior Trees and Flowers 2(Run 1 and 2 together)
+RequestImap(-1521525254)  --Green House Valentine -- Exterior Trees and Flowers 1(Run 1 and 2 together)
+RequestImap(-761186147)  --Green House Valentine -- Exterior Trees and Flowers 2(Run 1 and 2 together)
 -- RequestImap(-2137633069)  -- Shudders Close Upstairs Bedroom and Downstairs Library
--- RequestImap(-880373663)  -- Front Balcony Lantern Added
+RequestImap(-880373663)  -- Front Balcony Lantern Added
 -- RequestImap(-70021332)  -- Adds Working tools and supplies to upper balcony
+RequestImap(0x73DF4C1F) -- persiana 
+
 
 ------------------------------------- #### END OF BRAITHWAITE MANSION ####
 
+--##########################################
+
+
+
+--##########################################
+--               CALIGA HALL 
+--##########################################
 ------------------------------------- Grey Estates
 RequestImap(-677977650) -- Normal Barn Frame
 RequestImap(702350293) -- Barn Interior
 RequestImap(1426715569) -- Adds Field Props
 RequestImap(26815048) -- Normal Fields
-RequestImap(-1229109520) -- Green Plants
+RequestImap(-1229109520) -- Green Plants --PLANTAÇÃO TOTAL
 ------------------------------------- #### END OF GREY ESTATES ####
+--##########################################
 
+
+--##########################################
+--               BLACKWATER 
+--##########################################
 ------------------------------------- Black Water Town Hall
 RequestImap(-2082201137) --Blackwater Ground Town Hall
 RequestImap(1343343014) --Black Water Town Hall Addons Construction
 RequestImap(739412171) -- Two Boards in front of city hall (Goes with Town Hall Construction)
 RequestImap(-5339556) --Bank Under Construction
+RequestImap(-501793326) -- casa em contrução
+
+RequestImap(-1253110600) -- corrige buraco no mapa
+RequestImap(-1402083909) -- corrige buraco no mapa - adiciona ervas e arbustos
+
+RequestImap(0x711EEAEE) -- cemiterio blackwatter
+RequestImap(0xE11FDFD8) -- cemiterio blackwatter
 
 ------------------------------------- #### END OF BLACKWATER TOWN HALL ####
 
+--##########################################
+
+
+--##########################################
+--               AMBARINO 
+--##########################################
 ------------------------------------- First Camp - Winter Area -1346 2407 311
 RequestImap(-1331012521) -- Ground After Snowfall Winter
 RequestImap(-1991237877) -- Boxes
 RequestImap(-1670453688) -- Broken Wagons
 RequestImap(-743781837) -- Fire in Pit
 RequestImap(2114706334) -- Fire Pit
+RequestImap(-2119625926) -- CAIXAS
 RequestImap(-1306375743) -- Forge Fire
 ------------------------------------- #### END OF FIRST CAMP ####
 
@@ -195,6 +351,11 @@ RequestImap(-1106668087) -- Adds Wagon Wheel near Front Door
 RequestImap(2028590076) -- Cash Box Interior
 ------------------------------------- #### END OF FARM HOUSE ####
 
+--##########################################
+
+--##########################################
+--               STRAWBERRY 
+--##########################################
 ------------------------------------- Strawberry
 RequestImap(131323483) -- Doctors House Interior and Unlocked Front Door
 RequestImap(270920361) -- Crates on Doctors Porch
@@ -206,317 +367,160 @@ RequestImap(-130638369) -- Micahs Gun House Interior with Unlocked Front Door (U
 RequestImap(2137790641) -- Jail Cell Window Fixed
 RequestImap(1934919499) -- Jail Cell Window Fixed
 RequestImap(-515396642) -- Jail Cell Window Fixed
+
+RequestImap(966418260)  -- acougue
 ------------------------------------- #### END OF STRAWBERRY ####
+--##########################################
 
-RequestImap(62512826)
-RequestImap(1234648758)
 
-RequestImap(0xF45D1590) -- hrt_camp_hunting2 880.68676757812,418.41735839844,111.8219909668
+------------- BIG VALLEY ---------------------
+
+RequestImap(0xF0538CEB) -- buraco no chão
+
+--casas e contrução
+RequestImap(0xB4E395F8)
+RequestImap(0x6AD10BA4)
+RequestImap(0x4BCCD070)
+RequestImap(0x54DBA89E)
+RequestImap(0xEEFF7F86)
+RequestImap(0x2E3F310C)
+RequestImap(0x3D7DED12)
+RequestImap(0xDC11BF4E)
+RequestImap(0x3DCC8C93)
+RequestImap(0x763EA1E0)
+RequestImap(0x7E321430)
+RequestImap(-1042390616)
+RequestImap(1391886974)
+RequestImap(-1305406402)
+
+---------------------------------------------
+
+
+------------- THIEVES LANDING ---------------------
+RequestImap(0xD6FDC694) -- COLOCA PORTA NA CASA JUNTO AO PORTO
+
+---------------------------------------------
+
+--##########################################
+--         WAPITI INDIAN RESERVATION 
+--##########################################
+RequestImap(0xC8E7D9C1) -- FOGUEIRA COM PELE
+RequestImap(0x3BD21365) -- TENDAS
+RequestImap(0x61B03448) -- TENDA
+RequestImap(0x276ED986) -- FECHAR TENDA
+
+--##########################################
+
+
+------------- CABANA DA BRUXA ---------------------
+RequestImap(0x5F6E2172)
+RequestImap(0x3A365E34)
+
+---------------------------------------------
+
+
+--##########################################
+--        TENDA DE ESCOLHA DE PERSONAGENS 
+--##########################################
 RequestImap(0x3495DDB5) -- {hashname="k_11_p_mary1_camp",dec_hash=882236853,x=889.330078125,y=1273.5966796875,z=235.19036865234,h=16.22875213623},
-RequestImap(0xE1B566FB) -- {hashname="m_08_odr3_camp",dec_hash=-508205317,x=-547.51879882812,y=391.17834472656,z=87.722747802734,h=10.151049613952},
+--##########################################
 
-RequestImap(0x163894EE) -- {hashname="mp001_mp_jessicacamp_blackwater",dec_hash=372806894,x=-1573.7749023438,y=-1677.5676269532,z=80.145538330078,h=29.991483688354},
-RequestImap(0xD54D0CC1)
-RequestImap(0xA488338E)
-RequestImap(0x8594FFC1) -- {hashname="mp001_mp_jessicacamp_val",dec_hash=-2053832767,x=-320.53036499024,y=176.88012695312,z=64.359954833984,h=25.622871398926},
 
-RequestImap(0x0794C8D4) -- {hashname="mp004_campdef_bluewater",dec_hash=127191252,x=2274.7954101562,y=-375.12606811524,z=42.75267791748,h=15.696235656738},
-RequestImap(0x748D3FFD) -- {hashname="mp004_campdef_gap_breach",dec_hash=1955414013,x=-5908.0395507812,y=-3030.3217773438,z=1.7819174528122,h=13.382509231568},
-RequestImap(0x1C8B4360) -- {hashname="mp004_campdef_gap_ridge",dec_hash=478888800,x=-5690.12890625,y=-3358.6984863282,z=-22.163902282714,h=15.149020195008},
-RequestImap(0x6EA5EF28) -- {hashname="mp004_campdef_grt_plains",dec_hash=1856368424,x=-1399.8801269532,y=-1078.4494628906,z=76.98176574707,h=14.69657421112},
-RequestImap(0x0D80FCF1) -- {hashname="mp004_campdef_heartlands",dec_hash=226557169,x=504.10552978516,y=-246.14918518066,z=145.15127563476,h=16.202768325806},
-RequestImap(0xECE7095B) -- {hashname="mp004_campdef_hennigans",dec_hash=-320403109,x=-2561.1997070312,y=-2865.0463867188,z=71.746398925782,h=15.02048110962},
-RequestImap(0xDDA07366) -- {hashname="mp004_campdef_hrt_hilltop",dec_hash=-576687258,x=123.52725219726,y=415.05337524414,z=137.20059204102,h=10.580787658692},
-RequestImap(0xDBE417BC) -- {hashname="mp004_campdef_little_creek",dec_hash=-605808708,x=-2547.8442382812,y=557.31701660156,z=141.65718078614,h=12.7883644104},
-RequestImap(0xEC369A30) -- {hashname="mp004_campdef_new_hanover",dec_hash=-331965904,x=1881.9177246094,y=126.48085784912,z=98.841903686524,h=15.773805618286},
-RequestImap(0xFA07D510) -- {hashname="mp004_campdef_radleys",dec_hash=-100150000,x=752.95739746094,y=-919.14709472656,z=51.874645233154,h=14.310437202454},
+------------- PRISAO ---------------------
+RequestImap(0xAF4D90FD)
+RequestImap(0xF289E278)
+RequestImap(0x78CBEF02)
+RequestImap(0x14DE1BFB)
+RequestImap(0x792E7F9F)
+
+RequestImap(0x374555FC)
+RequestImap(0x80F2B82F)
+
+---------------------------------------------
+
+--##########################################
+--        correções 
+--##########################################
+RequestImap(0x471E0BA7)
+RequestImap(0xC3013498) -- interior casa bayou nwa
+RequestImap(0x49D8934A) -- interior casa bayou nwa
+
+RequestImap(0x942422A9) -- portas capital pond
+RequestImap(0x1934E0F0) -- portas capital pond
+
+--buraco
+RequestImap(0x6EF3A3AA)
+RequestImap(0x3E3B63BE)
+RequestImap(0x35555FE9)
+
+RequestImap(0xD9B9D454) -- arvore
+
+RequestImap(0xD33D3591) -- estabulo eris fiels
+RequestImap(0x72D18E3F) -- estabulo eris fiels
+
+RequestImap(0xD116AF35) -- interior casa
+
+RequestImap(0x1EC63FE8) -- sepultura
+
+RequestImap(0x88D7D444) -- ponte
+RequestImap(0x219D1D0E) -- ponte
+
+RequestImap(0xE0568F9B) -- pele de cobra
+
+RequestImap(0xBB4C64AB) -- contrução estatua montanha
+
+RequestImap(0xAD4C4061) --cabana em Tall Trees
+RequestImap(0x7150FAC3) -- interior cabana em Tall Trees
+
+
+
+--RequestImap(0xB3BE116F) -- tesouro
+--RequestImap(0x224485F7) -- tesouro
+--RequestImap(0x6B801757) -- tesouro
+--RequestImap(0xE62C7648) -- tesouro
+
+--RequestImap(0xDEC1B8B6) -- acampamento 2504.1765136718,880.30493164062,73.411949157714
+--RequestImap(0xE393DBB1) -- 
+--RequestImap(0x56BA95C8) -- acampamento -645.93774414062,277.52252197266,91.509216308594
+--RequestImap(0xDF06FE44) -- acampamento 948.04229736328,-1318.5251464844,59.785831451416
+--RequestImap(0xB68532A5) -- acampamento 683.40789794922,-992.44067382812,54.078731536866
+--RequestImap(0x8B5EFDDF) -- acampamento -1994.7438964844,-1366.744140625,117.33514404296
+--RequestImap(0x41EE4F4E) -- acampamento -884.03820800782,-1084.3236083984,59.30339050293
+--RequestImap(0xBD0E3755) -- 
+--RequestImap(0x7CF2CC6C) -- acampamento 2214.9482421875,654.45043945312,95.191604614258
+--RequestImap(0x3B8B04BD) -- 
+--RequestImap(0x18637476) -- acampamento 1944.8991699218,932.72271728516,117.28677368164
+--RequestImap(0xC53D385E) -- acampamento 2470.6740722656,111.99465942382,45.670455932618
+--RequestImap(0x42E10CED) -- acampamento -2763.1977539062,113.25587463378,165.1661682129
+--RequestImap(0x49973EB6) -- acampamento -2004.5419921875,-1165.6320800782,100.02781677246
+--RequestImap(0xF45D1590) -- acampamento 880.68676757812,418.41735839844,111.8219909668
+--RequestImap(0xE1B566FB) -- acampamento 880.68676757812,418.41735839844,111.8219909668
+--RequestImap(0x163894EE) -- acampamento -1573.7749023438,-1677.5676269532,80.145538330078
+--RequestImap(0xBD1CA514)
+--RequestImap(0xD54D0CC1) -- acampamento 1762.5595703125,-1899.1450195312,47.142532348632
+--RequestImap(0xDE326B96)
+--RequestImap(0xA488338E) -- acampamento -4578.1396484375,-2750.1982421875,-10.07486629486
+--RequestImap(0xB7CEE8C6)
+--RequestImap(0x8594FFC1) -- acampamento -320.53036499024,176.88012695312,64.359954833984
+--RequestImap(0xBF77C865)
+--RequestImap(0x0794C8D4) -- acampamento 2274.7954101562,-375.12606811524,42.75267791748
+--RequestImap(0x748D3FFD) -- acampamento -5908.0395507812,-3030.3217773438,1.7819174528122
+--RequestImap(0x1C8B4360) -- acampamento -5690.12890625,-3358.6984863282,-22.163902282714
+--RequestImap(0x6EA5EF28) -- acampamento -1399.8801269532,-1078.4494628906,76.98176574707
+--RequestImap(0x0D80FCF1) -- acampamento 504.10552978516,-246.14918518066,145.15127563476
+--RequestImap(0xECE7095B) -- acampamento -2561.1997070312,-2865.0463867188,71.746398925782
+--RequestImap(0xDDA07366) -- acampamento 123.52725219726,415.05337524414,137.20059204102
+--RequestImap(0xDBE417BC) -- acampamento -2547.8442382812,557.31701660156,141.65718078614
+--RequestImap(0xEC369A30) -- acampamento 1881.9177246094,126.48085784912,98.841903686524
+--RequestImap(0xFA07D510) -- acampamento 752.95739746094,-919.14709472656,51.874645233154
+--##########################################
+
+
+--0x81DA5716    madeireira
+
 
 local Imaps = {
-    -- /// valentine closed IPLS
-    -- 731209239,
-    -- 724436573,
-    -- -1475403379,
-    -- -518785376,
-    -- -1878882174,
-    -- 1202020135,
-    -- -1989899190,
-    -- 951314072,
-    -- -780819048,
-    -- -52140817,
-    -- 1081087978,
-    -- 696143352,
-    -- -981203673,
-    -- 1228600352,
-    -- -1301569116,
-    -- 282485265,
-    -- 56708243,
-    -- 199047531,
-    -- -776975047,
-    -- 2095116685,
-    -- -892659042,
-    -- 1136898294,
-    -- 897455211,
-    -- 1804593020,
-    -- -1049500949,
-    -- 1325716092,
-    --// CONVENTO IPLS
-    1405627586,
-    -1889108254,
-    --// POKER SHIP SAINT DENIS IPL
-    1347068672,
-    943998860,
-    1056170594,
-    -873881483,
-    881979872,
-    1157695860,
-    1859948183,
-    -1688366042,
-    -929277449,
-    -723094901,
-    -801609437,
-    -278745837,
-    -41173958,
-    1160690623,
-    -- /// SAINT DENIS IPL, CONSTRUCTION DECK
-    165972019, -- NEW
-    -- -1036688493, -- OLD
 
-    -- // FIX GROUND JOHN
-    -284612948,
-    -- /// MANSÃO DESTRUIDA
-    -1643869063,
-    -1220264217,
-    -1108618313,
-    -1508467572,
-    -990258606,
-    -- // FIX GROUND EMERALD
-    -1377975054,
-    -- // HOUSE EMERALD
-    -574996782,
-    1169511062,
-    -2111718052,
-    -1266106154,
-    1192526031,
-    -- Buracão que tinha no mapa
-    0xB4E395F8,
-    0x6AD10BA4,
-    0x4BCCD070,
-    0x54DBA89E,
-    0xEEFF7F86,
-    0x7F65DF33,
-    0xEE46F0B1,
-    0xFE3F310C,
-    0xF26E644C,
-    0xB4E395F8,
-    0x54DBA89E,
-    0x158F9F9F,
-    0x3D7DED12,
-    0xDC11BF4E,
-    0xDEAEDD0A,
-    0x763EA1E0,
-    0x7E321430,
-    0x4D22125C,
-    -- Buracão que tinha no mapa
-
-    0x34DE81E3,
-    0x4E2966BD,
-    0xD6FDC694,
-    0x6C59FC22,
-    0x1CB53284,
-    -- grade do banco rhodes
-    0xE04C16B6,
-    -- AÇOUGUE RHODES
-    0xF2808F6B,
-    -- procurado saint denis
-    0xDC7F11FC,
-    -- CORREÇÃO SAIN DENNIS
-    0xEFA9DBBB,
-    0x8B669DF, -- BARCO POKER
-    0x11637AE7,
-    0xD8053169, --CADEIRA ELETRICA
-    0xA3F562DB, -- CADEIRA ELETRICA
-    0x815FFED3, --  CADEIRA  ELETRICA
-    0xA8ED236, --AÇOUQUE SANT DENIS
-    0x59F3ABC7,
-    0xE3FDC047,
-    0xFE33D422, -- AÇOUGUE SANT DENIS
-    0xC33DA16B, --staw procurado
-    0x399A5F54,
-    0xB586076, --AÇOUGUE STRAW
-    0xF8369DDF,
-    0x70C77F97, --CASA STRAW
-    0xC8E7D9C1,
-    --    INDIO
-    0xDD82A5F4,
-    0xE86B4C35,
-    0x3BD21365,
-    0x3BD21365,
-    0x2C1889F7,
-    0xA5CFD507,
-    0x61B03448,
-    0x5F6E2172,
-    -- 0x92544FE ,
-    0x3A365E34,
-    0x5DE27A80,
-    --Banco Sant denis
-    0x3B5649C4,
-    0x472AB68D,
-    0x3CA39CE3,
-    0xC92232A0,
-    0x10CB82DD,
-    0XDBFE4AC2,
-    ----
-    --Cinema
-    0x830F5B56,
-    0xCA785D9C,
-    0x43CF1C37,
-    0x9C9F8C62,
-    0x9BF02141,
-    -----
-    -- Correçao paredes Saint Denis
-    0xDC7F11FC,
-    0xEFA9DBBB,
-    ------
-    --Bar saint denis
-    0xD602C52F,
-    -----
-    -- Museu Saint Denis
-    0x6E6463C4,
-    0xCC51ABED,
-    0xA72FE0A6,
-    ----
-    --Lojinha consutorio Saint danis
-    0x87DD7432,
-    0xCE2508DF,
-    ----
-    --Porto
-    0x367A7709,
-    0x64164BD7,
-    0xA5D4978E,
-    -- 0x87DC3EA,
-    0x11637AE7,
-    0x54803066,
-    0xE32C1775,
-    0x5DA2C09B,
-    0x471E0BA7,
-    0xAF4D90FD,
-    0x2B241C76,
-    0xF289E278,
-    --fix rhoads
-    0x2DC45AC4,
-    0xE2BEb5B6,
-    0x33EA030D,
-    0x33D5AF43,
-    0xBB4E8E0D,
-    0x6557862D,
-    0x78CBEF02,
-    0xFA362050,
-    0xC2383FE3,
-    0xB2EBEBD4,
-    0xCBCBEC02,
-    -- 0x8952FFB,
-    0x322C913F,
-    0xC3013498,
-    0x49D8934A,
-    0xF0538CEB,
-    0x1A9DE17F,
-    0x711EEAEE,
-    0x36AEEEA9,
-    0xE11FDFD8,
-    0x49DC91AE,
-    -- 0x6EC8103,
-    0xA72FA936,
-    0xF0DF852E,
-    0xCAD5401C,
-    0xB6F62319,
-    0xC4BBB30,
-    0x83C3EE1E,
-    0x99277AA3,
-    0xA37AB284,
-    0x1A403D2,
-    0xB3BE116F,
-    0x224485F7,
-    0x942422A9,
-    0x1934E0F0,
-    0x6EF3A3AA,
-    0xBFAB4338,
-    0x6B801757,
-    0x52BDAB97,
-    0x3741345F,
-    -- 0x2B081A9,
-    0x9FCA283F,
-    0x87B8E3B3,
-    0x49DC91AE,
-    0x2C1BB305,
-    -- 0xFF2EB2C,
-    0xDEC1B8B6,
-    0xE393DBB1,
-    0x38C9DE8F,
-    0x56BA95C8,
-    0xB3F01BA2,
-    0xF6326273,
-    0xAD5CDB45,
-    0x24A161DF,
-    0xFA33ACD1,
-    0x5F9053C0,
-    0xE30D8B64,
-    0xA966196D,
-    0xD2B7EC01,
-    0x72D18E3F,
-    -- 0xA8D4BE9,
-    0xCB2BF86A,
-    0xD33D3591,
-    0x3E818D6D,
-    0x86B2D136,
-    0xD116AF35,
-    0x26D6F370,
-    0x720E4669,
-    0x434568D8,
-    0xD3A37B9F,
-    0x62639AB3,
-    0xDF06FE44,
-    0xD2A1389D,
-    0x447F53F6,
-    0x73DF4C1F,
-    0xFE1A0B0A,
-    0x83F6BE2E,
-    0x37604FE,
-    0xF1443441,
-    0x1EC63FE8,
-    0xB68532A5,
-    0x88D7D444,
-    0x8B5EFDDF,
-    0x85F507BE,
-    0x661ED339,
-    0x1E30DE86,
-    0x955CE3F9,
-    0x919BDC77,
-    0x41EE4F4E,
-    0xBD0E3755,
-    0x4E60F23F,
-    0x98DC71E5,
-    0x7CF2CC6C,
-    0x18637476,
-    0xC3392ECE,
-    0xDF9FDAC2,
-    0xD0A4D7E5,
-    0xE0568F9B,
-    0x1E50C50A,
-    0xB8049834,
-    0xC53D385E,
-    0xBB4C64AB,
-    0x69190013,
-    0x42E10CED,
-    0x81DA5716,
-    -- 0xC30233E,
-    0xB02133A3,
-    0x7231D143,
-    0xAD4C4061,
-    0x7150FAC3,
-    0x4B0ED9EE,
-    0xB02ECF9A,
-    0x83E1ED8D,
-    0xFBE9C487
 }
 
 AddEventHandler(
