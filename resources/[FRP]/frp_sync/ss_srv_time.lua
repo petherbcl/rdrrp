@@ -62,7 +62,6 @@ Citizen.CreateThread( function()
 end)
 
 RegisterCommand('time', function(source,args,rawCommand)
-    
     if source == 0 then
         if tonumber(args[1]) ~= nil and tonumber(args[2]) ~= nil then
             ProcessTimeCommand(args[1],args[2])
@@ -73,15 +72,18 @@ RegisterCommand('time', function(source,args,rawCommand)
             TraceMsg("Invalid syntax, correct syntax is: time <hour> <minute>.",true)
         end
     else
-
+        local User = API.getUserFromSource(source)
+        local Character = User:getCharacter()
+        if Character:hasGroupOrInheritance("admin") then
             if tonumber(args[1]) ~= nil and tonumber(args[2]) ~= nil then
                 ProcessTimeCommand(args[1],args[2])
                 h = math.floor( secondOfDay / 3600 )
-	            m = math.floor( (secondOfDay - (h * 3600)) / 60 )
+                m = math.floor( (secondOfDay - (h * 3600)) / 60 )
                 TraceMsg(GetPlayerName(source).." has changed time to " ..string.format("%02d", h)..":"..string.format("%02d",m))
             else
                 TraceMsg("Invalid syntax, correct syntax is: time <hour> <minute>.",true)
             end
+        end
 
     end
 

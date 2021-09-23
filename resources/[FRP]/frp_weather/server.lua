@@ -1,126 +1,104 @@
-local Tunnel = module("_core", "lib/Tunnel")
-local Proxy = module("_core", "lib/Proxy")
-API = Proxy.getInterface("API")
-cAPI = Tunnel.getInterface("API")
-
 local weatherPerRegion = {
     ["Heartlands"] = {
       --  ["rain"] = 0.1,
         ["highpressure"] = 0.3,
         ["sunny"] = 0.45,
       --  ["clouds"] = 0.3,
-      --  ["sleet"] = 0.2,
+        ["sleet"] = 0.2,
     },
     ["GuarmaD"] = {
         ["sunny"] = 1.0
     },
     ["bigvalley"] = {
-     --   ["rain"] = 0.1,
-    --    ["sunny"] = 0.7,
-     --   ["hail"] = 0.1
-     ["highpressure"] = 0.2,
+        ["rain"] = 0.1,
+        ["sunny"] = 0.7,
+        ["hail"] = 0.1
     },
     ["BluewaterMarsh"] = {
-     --   ["fog"] = 0.8,
-     --   ["misty"] = 0.3,
-      --  ["clouds"] = 0.2,
-        ["highpressure"] = 0.2,
+        ["fog"] = 0.8,
+        ["misty"] = 0.3,
+        ["clouds"] = 0.2
     },
     ["ChollaSprings"] = {
         ["sunny"] = 0.7,
         ["highpressure"] = 0.2,
-        
-     --   ["clouds"] = 0.2
+        ["clouds"] = 0.2
     },
     ["Cumberland"] = {
-     --   ["rain"] = 0.1,
+        ["rain"] = 0.1,
         ["sunny"] = 0.6,
         ["highpressure"] = 0.3,
-    --   ["shower"] = 0.2,
-     --   ["hail"] = 0.1,
-     --   ["drizzle"] = 0.2
+        ["shower"] = 0.2,
+        ["hail"] = 0.1,
+        ["drizzle"] = 0.2
     },
     ["DiezCoronas"] = {
         ["sunny"] = 0.9,
-        ["highpressure"] = 0.2,
-    --    ["shower"] = 0.1
+        ["shower"] = 0.1
     },
     ["GaptoothRidge"] = {
         ["sunny"] = 0.7,
-        ["highpressure"] = 0.2,
-     --   ["shower"] = 0.1,
-    --    ["clouds"] = 0.2
+        ["shower"] = 0.1,
+        ["clouds"] = 0.2
     },
     ["greatPlains"] = {
         ["sunny"] = 0.6,
-     --   ["shower"] = 0.2,
-        ["highpressure"] = 0.2,
-    --    ["clouds"] = 0.1,
-    ---    ["drizzle"] = 0.1
+        ["shower"] = 0.2,
+        ["clouds"] = 0.1,
+        ["drizzle"] = 0.1
     },
     ["GrizzliesEast"] = {
         ["sunny"] = 0.5,
-    --    ["shower"] = 0.2,
-        ["highpressure"] = 0.2,
-    --    ["drizzle"] = 0.2,
-    --    ["clouds"] = 0.1,
-     --   ["thunder"] = 0.3
+        ["shower"] = 0.2,
+        ["drizzle"] = 0.2,
+        ["clouds"] = 0.1,
+        ["thunder"] = 0.3
     },
     ["GrizzliesWest"] = {
-   --     ["snowlight"] = 0.5,
-   --     ["blizzard"] = 1.0,
-    --    ["whiteout"] = 0.8
-    ["highpressure"] = 0.2,
+        ["snowlight"] = 0.5,
+        ["blizzard"] = 1.0,
+        ["whiteout"] = 0.8
     },
     ["HennigansStead"] = {
-     --   ["rain"] = 0.2,
+        ["rain"] = 0.2,
         ["sunny"] = 0.7,
-        ["highpressure"] = 0.2,
-    --    ["shower"] = 0.3,
-     --   ["drizzle"] = 0.2
+        ["shower"] = 0.3,
+        ["drizzle"] = 0.2
     },
     ["Perdido"] = {
         ["sunny"] = 0.8,
-    --    ["shower"] = 0.1,
-    --    ["clouds"] = 0.2,
-        ["highpressure"] = 0.5,
+        ["shower"] = 0.1,
+        ["clouds"] = 0.2
     },
     ["PuntaOrgullo"] = {
         ["sunny"] = 0.8,
-    --    ["shower"] = 0.1,
-    --    ["clouds"] = 0.5,
-        ["highpressure"] = 0.5,
+        ["shower"] = 0.1,
+        ["clouds"] = 0.5
     },
     ["RioBravo"] = {
         ["sunny"] = 1.0,
-    --    ["shower"] = 0.2,
-        ["highpressure"] = 0.2,
+        ["shower"] = 0.2
     },
     ["roanoke"] = {
-     --   ["misty"] = 0.8,
-    --    ["fog"] = 0.3,
-    --    ["thunder"] = 0.2,
-    --    ["sleet"] = 0.1,
-        ["highpressure"] = 0.2,
+        ["misty"] = 0.8,
+        ["fog"] = 0.3,
+        ["thunder"] = 0.2,
+        ["sleet"] = 0.1
     },
     ["scarlettMeadows"] = {
-    --    ["fog"] = 0.6,
-    --    ["drizzle"] = 0.5,
-        ["sunny"] = 0.2,
-        ["highpressure"] = 0.2,
+        ["fog"] = 0.6,
+        ["drizzle"] = 0.5,
+        ["sunny"] = 0.2
     },
     ["TallTrees"] = {
-     --   ["overcastdark"] = 0.8,
-     --   ["thunder"] = 0.5,
-        ["sunny"] = 0.2,
-        ["highpressure"] = 0.2,
-    --    ["drizzle"] = 0.4,
-    --    ["misty"] = 0.2
+        ["overcastdark"] = 0.8,
+        ["thunder"] = 0.5,
+        ["drizzle"] = 0.4,
+        ["misty"] = 0.2
     },
     ["BayouNwa"] = {
         ["sunny"] = 0.0,
-     --   ["fog"] = 1.0,
-        ["highpressure"] = 0.2,
+        ["fog"] = 1.0,
     }
 }
 
@@ -193,7 +171,6 @@ AddEventHandler(
         end
     end
 )
-
 
 --     "highpressure",
 --     "rain",
